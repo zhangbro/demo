@@ -1,0 +1,18 @@
+server:
+  port: 80
+
+spring:
+  mvc:
+    static-path-pattern: /**
+  resources:
+    static-locations: classpath:/webapp/static/
+  thymeleaf:
+    check-template: true
+    check-template-location: true
+    cache: false
+    prefix: classpath:/webapp/view/
+    suffix: .html
+    mode: "HTML"
+    encoding: "UTF-8"
+    servlet:
+      content-type: text/html

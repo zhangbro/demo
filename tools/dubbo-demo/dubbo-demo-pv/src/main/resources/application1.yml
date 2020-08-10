@@ -1,0 +1,22 @@
+server:
+  port: 8088
+dubbo:
+  application:
+    name: "demo"
+    qos-port: 3333
+    organization: "zhang"
+    owner: "zhangbro"
+  protocol:
+    port: 20880
+    name: "dubbo"
+    accesslog: "dubbo-access.log"
+  registry:
+    protocol: "zookeeper"
+    address: "zookeeper://exc-zookeeper:2181"
+  monitor:
+    protocol: "registry"
+  provider:
+    timeout: 30000
+    retries: 0
+    version:
+

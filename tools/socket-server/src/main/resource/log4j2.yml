@@ -1,0 +1,41 @@
+Configuration:
+  appenders:
+    Console:
+      name: Console
+      target: SYSTEM_OUT
+      PatternLayout:
+        Pattern: "[%d{mm:ss.SSS}] [%p] %m%n"
+    RollingFile:
+      - name: ROLLING_FILE
+        ignoreExceptions: false
+        fileName: ../logs/log4j2.log
+        filePattern: "../logs/log4j2-%d{yyyy-MM-dd}-%i.log"
+        PatternLayout:
+          Pattern: "[%d{HH:mm:ss.SSS}] [%p] %m%n"
+        Policies:
+          TimeBasedTriggeringPolicy:
+            modulate: true
+            interval: 1
+          SizeBasedTriggeringPolicy:
+            size: 2MB
+        DefaultRolloverStrategy:
+          max: 20
+  Loggers:
+    root:
+      level: INFO
+      appender-ref:
+        - ref: Console
+        - ref: ROLLING_FILE
+    Logger: #单独设置某些包的输出级别
+      - name: org.springframework.web
+        additivity: false #去除重复的log
+        level: INFO
+        appender-ref:
+          - ref: Console
+          - ref: ROLLING_FILE
+      - name: org.springboot.sample
+        additivity: false
+        level: INFO
+        appender-ref:
+          - ref: Console
+          - ref: ROLLING_FILE
