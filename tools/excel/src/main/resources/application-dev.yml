@@ -1,5 +1,0 @@
-server:
-  port: 8082
-app:
-  name: web
-...

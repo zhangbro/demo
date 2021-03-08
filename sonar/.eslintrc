@@ -1,0 +1,15 @@
+{
+  "plugins": [
+    "sonarjs",
+    "sonar-test"
+  ],
+  "extends": [
+    "plugin:sonarjs/recommended"
+  ],
+  "rules": {
+    //    "sonarjs/cognitive-complexity": "error",
+    //    "sonarjs/no-identical-expressions": "error"
+    "sonar-test/first-rule": 2
+    // etc.
+  }
+}
